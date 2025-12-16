@@ -18,6 +18,6 @@ def test_parse_entry_taxid_filter_accept():
 def test_parse_entry_taxid_filter_reject():
     idmap = IDMap()
     edges = EdgeStore()
-    filter_set = {"1000"}  # Не совпадает с 9606
+    filter_set = {"1000"}
     parse_entry(BLOCK_WITH_TAXID, idmap, edges, filter_set)
     assert len(idmap._map) == 0

@@ -23,19 +23,19 @@ def main() -> None:
         "--output-graph",
         type=Path,
         default=Path("output/graph.g"),
-        help="Output graph edges file (default: graph.g)",
+        help="Output graph edges file (default: output/graph.g)",
     )
     parser.add_argument(
         "--output-nodes",
         type=Path,
         default=Path("output/nodes.tsv"),
-        help="Output nodes file (default: nodes.tsv)",
+        help="Output nodes file (default: output/nodes.tsv)",
     )
     parser.add_argument(
         "--output-stats",
         type=Path,
         default=Path("output/stats.txt"),
-        help="Output stats file (default: stats.txt)",
+        help="Output stats file (default: output/stats.txt)",
     )
     parser.add_argument(
         "--taxid",
