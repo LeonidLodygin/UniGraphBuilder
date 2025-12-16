@@ -1,6 +1,6 @@
-from unigraph.parsers.entry import parse_entry
-from unigraph.idmap import IDMap
 from unigraph.edges import EdgeStore
+from unigraph.idmap import IDMap
+from unigraph.parsers.entry import parse_entry
 
 SAMPLE_BLOCK = """
 AC   P12345;
@@ -14,6 +14,7 @@ DR   GeneID; 1234;
 DR   HOGENOM; HOG00001;
 //
 """
+
 
 def test_number_of_unique_nodes_after_parse():
     idmap = IDMap()

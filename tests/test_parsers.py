@@ -1,6 +1,6 @@
-from unigraph.parsers.entry import parse_entry
-from unigraph.idmap import IDMap
 from unigraph.edges import EdgeStore
+from unigraph.idmap import IDMap
+from unigraph.parsers.entry import parse_entry
 
 SAMPLE_BLOCK = """
 AC   P12345;
@@ -15,6 +15,7 @@ DR   HOGENOM; HOG00001;
 //
 """
 
+
 def test_parse_entry_basic():
     idmap = IDMap()
     edges = EdgeStore()
@@ -26,14 +27,16 @@ def test_parse_entry_basic():
     assert pid is not None
     assert len(edges.edges) > 0
     assert len(edges.stats) > 0
-    
+
+
 def test_parse_entry_empty_block():
     idmap = IDMap()
     edges = EdgeStore()
     filter_set = set()
     parse_entry("", idmap, edges, filter_set)
     assert len(idmap._map) == 0
-    assert len(edges.edges) == 0   
+    assert len(edges.edges) == 0
+
 
 def test_parse_entry_taxid_filter():
     idmap = IDMap()
@@ -45,6 +48,7 @@ def test_parse_entry_taxid_filter():
     parse_entry(block, idmap, edges, {"9606"})
     assert len(idmap._map) == 0
     assert len(edges.edges) == 0
+
 
 def test_parse_entry_full_block():
     idmap = IDMap()
@@ -66,9 +70,24 @@ def test_parse_entry_full_block():
     assert protein_key in idmap._map
 
     rels = [e.rel for e in edges.edges]
-    for rel in ["belongs_to", "belongs_to_r", "interacts_with", "participate_in", "participate_in_r", "has", "has_r", "refers_to", "refers_to_r", "codes_for", "codes_for_r", "Is_homologous_to", "Is_homologous_to_r"]:
-        assert rel in rels    
-        
+    for rel in [
+        "belongs_to",
+        "belongs_to_r",
+        "interacts_with",
+        "participate_in",
+        "participate_in_r",
+        "has",
+        "has_r",
+        "refers_to",
+        "refers_to_r",
+        "codes_for",
+        "codes_for_r",
+        "Is_homologous_to",
+        "Is_homologous_to_r",
+    ]:
+        assert rel in rels
+
+
 def test_read_dat_blocks(tmp_path):
     from unigraph.io.reader import read_dat_blocks
 
@@ -86,7 +105,8 @@ OX   NCBI_TaxID=2;
     blocks = list(read_dat_blocks(file_path))
     assert len(blocks) == 2
     assert blocks[0].startswith("AC   P1;")
-    assert blocks[1].startswith("AC   P2;")    
+    assert blocks[1].startswith("AC   P2;")
+
 
 def test_parse_refs_add_edges():
     from unigraph.parsers.refs import parse_refs
@@ -115,4 +135,4 @@ def test_parse_refs_add_edges():
     assert any(e.rel == "has" for e in edges.edges)
     assert any(e.rel == "refers_to" for e in edges.edges)
     assert any(e.rel == "codes_for" for e in edges.edges)
-    assert any(e.rel == "Is_homologous_to" for e in edges.edges)    
+    assert any(e.rel == "Is_homologous_to" for e in edges.edges)

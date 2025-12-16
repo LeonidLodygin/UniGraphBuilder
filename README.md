@@ -1,8 +1,8 @@
-#UniGraphBuilder
+# UniGraphBuilder
 
 UniGraphBuilder is a Python-based tool to parse [UniProt](https://www.uniprot.org/) .dat files and convert biological data into graph format for downstream analysis. It extracts proteins, their relationships, and annotations, producing graph edges, nodes, and summary statistics.
 
-##Features
+## Features
 
 - Parses UniProt .dat files and extracts relationships between proteins and entities like KEGG, STRING, GO, InterPro, PubMed, GeneID, and HOGENOM.
 
@@ -12,17 +12,17 @@ UniGraphBuilder is a Python-based tool to parse [UniProt](https://www.uniprot.or
 
 - Modular, extensible codebase with CLI support.
 
-##Why use UniGraphBuilder?
+## Why use UniGraphBuilder?
 
 UniGraphBuilder helps researchers transform complex UniProt datasets into graph representations for network analysis, visualization, and integration with other omics data. It automates parsing and linking biological entities efficiently.
 
-##Requirements
+## Requirements
 
 - [Python 3.10 or higher](https://wiki.python.org/moin/BeginnersGuide/Download)
 
 - Poetry(recommended for managing dependencies and virtual environments)
 
-##Installation
+## Installation
 
 Clone this repository and install dependencies via Poetry:
 
@@ -34,7 +34,7 @@ poetry install
 
 Alternatively, you can manually create a virtual environment and install dependencies from pyproject.toml.
 
-##Usage
+## Usage
 
 The main entry point is the CLI script:
 
@@ -62,11 +62,11 @@ poetry run unigraph --taxid 9606 --taxid 10090
 
 This command processes only proteins from organisms with TaxIDs 9606 (human) and 10090 (mouse).
 
-##How it works
+## How it works
 
 UniGraphBuilder reads .dat files from the input directory, parses them entry-by-entry, extracts protein IDs and cross-references, creates nodes and edges representing biological relationships, and saves the results in simple, tab-separated files.
 
-##Development
+## Development
 
 Code is organized in modules for parsing, graph data management, and I/O.
 
@@ -76,6 +76,6 @@ Tests are included and can be run with pytest:
 poetry run pytest
 ```
 
-##License
+## License
 
 Apache-2.0
