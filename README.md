@@ -4,13 +4,13 @@ UniGraphBuilder is a Python-based tool to parse [UniProt](https://www.uniprot.or
 
 ## Features
 
-- Parses UniProt .dat files and extracts relationships between proteins and entities like KEGG, STRING, GO, InterPro, PubMed, GeneID, and HOGENOM.
+- Parses UniProt .dat files and extracts relationships between proteins and entities like KEGG, STRING, GO, InterPro, PubMed, GeneID, and HOGENOM
 
-- Filters data by organism taxonomic IDs (NCBI TaxIDs).
+- Filters data by organism taxonomic IDs (NCBI TaxIDs)
 
-- Outputs graph edges, node lists, and statistics in easy-to-use text formats.
+- Outputs graph edges, node lists, and statistics in easy-to-use text formats
 
-- Modular, extensible codebase with CLI support.
+- Modular, extensible codebase with CLI support
 
 ## Why use UniGraphBuilder?
 
@@ -27,8 +27,6 @@ UniGraphBuilder helps researchers transform complex UniProt datasets into graph 
 Clone this repository and install dependencies via Poetry:
 
 ```shell
-git clone https://github.com/yourusername/unigraphbuilder.git
-cd unigraphbuilder
 poetry install
 ```
 
