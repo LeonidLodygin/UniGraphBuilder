@@ -26,4 +26,4 @@ jobs:
         run: poetry run black --check src tests
 
       - name: Tests
-        run: poetry run pytest --cov
+        run: poetry run pytest
