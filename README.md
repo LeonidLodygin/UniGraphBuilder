@@ -60,6 +60,46 @@ poetry run unigraph --taxid 9606 --taxid 10090
 
 This command processes only proteins from organisms with TaxIDs 9606 (human) and 10090 (mouse).
 
+## Usage example
+
+### Input data
+
+UniGraphBuilder works with **UniProt `.dat` files** in the official *UniProt flat file format*.
+These files can be downloaded from the UniProt website:
+
+- https://www.uniprot.org/help/downloads
+
+For example, you can download the reviewed protein dataset:
+
+- `uniprot_sprot.dat.gz`
+
+After downloading, the file must be decompressed. 
+.dat file contains multiple UniProt records separated by //.
+
+### Example scenario
+
+Suppose we want to build a biological graph for human proteins
+(Homo sapiens, NCBI TaxID = 9606) and include relationships to external
+databases such as GO, KEGG, STRING, GeneID, and PubMed.
+
+### Step 1: Prepare input files
+
+Place UniProt .dat files into 'data' directory.
+
+### Step 2: Run the tool
+
+```shell
+poetry run unigraph
+```
+
+### Output files
+
+After execution, the output directory contains:
+
+- nodes.tsv (Mapping of entity identifiers to numeric node IDs)
+- stats.txt (Summary statistics: nodes, edges per relation type)
+- graph.g
+
 ## How it works
 
 UniGraphBuilder reads .dat files from the input directory, parses them entry-by-entry, extracts protein IDs and cross-references, creates nodes and edges representing biological relationships, and saves the results in simple, tab-separated files.
