@@ -74,6 +74,7 @@ For example, you can download the reviewed protein dataset:
 - `uniprot_sprot.dat.gz`
 
 After downloading, the file must be decompressed. 
+
 .dat file contains multiple UniProt records separated by //.
 
 ### Example scenario
@@ -89,7 +90,7 @@ Place UniProt .dat files into 'data' directory.
 ### Step 2: Run the tool
 
 ```shell
-poetry run unigraph
+poetry run unigraph --taxid 9606
 ```
 
 ### Output files
