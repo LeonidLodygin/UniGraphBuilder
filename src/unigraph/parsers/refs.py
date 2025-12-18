@@ -3,6 +3,12 @@ import re
 from unigraph.edges import EdgeStore
 from unigraph.idmap import IDMap
 
+# Regular expressions for parsing UniProt cross-references.
+# Based on the official UniProt .dat format documentation:
+# https://ftp.uniprot.org/pub/databases/uniprot/knowledgebase/complete/docs/userman.htm
+#
+# Example line:
+# DR   KEGG; hsa:10458; -.
 REF_PARSERS = [
     (r"DR\s+KEGG;\s+([^;]+);", "kegg", "belongs_to", "belongs_to_r"),
     (r"DR\s+STRING;\s+([^;]+);", "string", "interacts_with", "interacts_with"),

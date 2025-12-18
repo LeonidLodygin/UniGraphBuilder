@@ -2,6 +2,11 @@ from unigraph.edges import Edge, EdgeStore
 
 
 def test_edges_add_and_stats():
+    """
+    Verify that EdgeStore correctly:
+    - stores added edges
+    - updates statistics per relation type
+    """
     edges = EdgeStore()
     edges.add(1, 2, "rel1")
     edges.add(2, 3, "rel2")

@@ -51,6 +51,23 @@ def test_parse_entry_taxid_filter():
 
 
 def test_parse_entry_full_block():
+    """
+    This test checks parsing of a synthetic UniProt entry that contains
+    the most common cross-references used for graph construction.
+
+    The block includes:
+    - a protein accession (AC)
+    - organism taxonomy information (OX)
+    - cross-references to external databases (KEGG, STRING, GO, InterPro,
+      GeneID, HOGENOM)
+    - a literature reference (PubMed)
+
+    The goal of the test is to ensure that:
+    1) The protein itself is registered as a vertex in the ID map.
+    2) All expected relation types are generated based on the provided
+       cross-references.
+    """
+
     idmap = IDMap()
     edges = EdgeStore()
     block = """
